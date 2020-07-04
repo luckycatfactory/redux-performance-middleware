@@ -1,0 +1,74 @@
+{
+  "author": {
+    "email": "louisstephancruz@me.com",
+    "name": "Louis Cruz"
+  },
+  "bin": "./cli.js",
+  "browser": "dist/index.js",
+  "bugs": "https://github.com/pool-time/redux-performance-middleware/issues",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "contributors": [
+    {
+      "email": "louisstephancruz@me.com",
+      "name": "Louis Cruz"
+    }
+  ],
+  "dependencies": {
+    "@types/redux": "^3.6.0"
+  },
+  "description": "A simple middleware that allows you to measure performance of your reducers",
+  "devDependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-typescript": "^5.0.1",
+    "@types/jest": "^26.0.3",
+    "@types/node": "^14.0.14",
+    "@types/redux": "^3.6.0",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "babel-jest": "^26.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^23.17.1",
+    "jest": "^26.1.0",
+    "redux": "^4.0.5",
+    "rollup": "^2.18.2",
+    "rollup-plugin-filesize": "^9.0.2",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.6"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "name": "redux-performance-middleware",
+  "repository": "https://github.com/louisscruz/redux-performance-middleware",
+  "scripts": {
+    "build": "yarn clean && rollup -c",
+    "clean": "rm -rf dist",
+    "eslint": "yarn eslint:fix",
+    "eslint:base": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "eslint:check": "yarn eslint:base",
+    "eslint:fix": "yarn eslint:base --fix",
+    "prettier": "yarn prettier:fix",
+    "prettier:base": "prettier 'projects/**/*.{js,ts,tsx}' --check",
+    "prettier:check": "yarn prettier:base --check",
+    "prettier:fix": "yarn prettier:base --write",
+    "test": "yarn test:base --watch",
+    "test:base": "jest",
+    "test:ci": "yarn test:base --coverage"
+  },
+  "source": "src/index.ts",
+  "ts:main": "src/index.ts",
+  "types": "dist/types/index.d.ts",
+  "unpkg": "dist/index.umd.js",
+  "version": "1.0.0"
+}
