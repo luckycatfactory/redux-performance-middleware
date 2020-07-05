@@ -1,6 +1,7 @@
 [![codecov](https://codecov.io/gh/luckycatfactory/redux-performance-middleware/branch/master/graph/badge.svg)](https://codecov.io/gh/luckycatfactory/redux-performance-middleware)
+[![npm version](https://badge.fury.io/js/%40luckycatfactory%2Fredux-performance-middleware.svg)](https://badge.fury.io/js/%40luckycatfactory%2Fredux-performance-middleware)
 
-# `@luckycatfactory/redux-performance-middleware`
+# `redux-performance-middleware`
 
 This package supplies a lightweight middleware that gives you observability of your Redux reducer's performance.
 
@@ -15,7 +16,7 @@ yarn add @luckycatfactory/redux-performance-middleware
 With `npm`:
 
 ```sh
-npm install --save @luckycatfactory/redux-performance-middleware
+npm install @luckycatfactory/redux-performance-middleware --save
 ```
 
 ## Usage
