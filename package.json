@@ -56,7 +56,10 @@
   "license": "MIT",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
-  "name": "redux-performance-middleware",
+  "name": "@luckycatfactory/redux-performance-middleware",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": "https://github.com/luckycatfactory/redux-performance-middleware",
   "scripts": {
     "build": "yarn clean && rollup -c",
