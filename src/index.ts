@@ -15,15 +15,13 @@ export type ReduxPerformanceMiddlewareCallback = (
   parameters: ReduxPerformanceMiddlewareCallbackParameters
 ) => void;
 
-function noOp(): void {
-  return;
-}
-
 function reduxPerformanceMiddleware<S, E extends AnyAction>(
-  callback: ReduxPerformanceMiddlewareCallback = noOp
+  callback: ReduxPerformanceMiddlewareCallback
 ): Middleware<S, E> {
+  const hasCallback = Boolean(callback);
+
   if (process.env.NODE_ENV !== 'production') {
-    if (callback === noOp) {
+    if (!hasCallback) {
       // eslint-disable-next-line no-console
       console.error(
         'Expected reduxPerformanceMiddleware to be invoked with a callback, but it was not.'
@@ -40,7 +38,7 @@ function reduxPerformanceMiddleware<S, E extends AnyAction>(
 
     const elapsedTime = Date.now() - now;
 
-    callback({ action, elapsedTime });
+    hasCallback && callback({ action, elapsedTime });
 
     return result;
   };
