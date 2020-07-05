@@ -46,7 +46,7 @@ jobs:
         run: yarn prettier:check
     runs-on: ubuntu-latest
   release:
-    # if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master'
     needs: ['build', 'commitlint', 'format', 'test']
     runs-on: ubuntu-latest
     steps:
@@ -68,11 +68,11 @@ jobs:
           mv redux-performance-middleware-dist dist
       - name: Install dependencies
         run: yarn --offline --frozen-lockfile
-      # - env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   name: Release
-      #   run: yarn semantic-release
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        name: Release
+        run: yarn release
   test:
     runs-on: ubuntu-latest
     steps:
@@ -88,5 +88,9 @@ jobs:
         run: yarn --offline --frozen-lockfile
       - name: Test
         run: yarn test:ci
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 name: Continuous Integration
 on: [push]
