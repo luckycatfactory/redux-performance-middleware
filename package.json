@@ -54,6 +54,7 @@
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
+  "keywords": ["redux", "performance", "middleware", "benchmark"],
   "license": "MIT",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
