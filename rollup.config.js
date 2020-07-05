@@ -1,8 +1,8 @@
-import filesize from "rollup-plugin-filesize";
-import typescript from "@rollup/plugin-typescript";
+import filesize from 'rollup-plugin-filesize';
+import typescript from '@rollup/plugin-typescript';
 
-const external = ["@pool-time/pool-time-core", "react"];
-const input = "src/index.ts";
+const external = ['@pool-time/pool-time-core', 'react'];
+const input = 'src/index.ts';
 
 export default [
   // Generate code distributions
@@ -11,23 +11,23 @@ export default [
     input,
     output: [
       {
-        file: "dist/index.js",
-        format: "cjs",
+        file: 'dist/index.js',
+        format: 'cjs',
         sourcemap: true,
       },
       {
-        file: "dist/index.esm.js",
-        format: "es",
+        file: 'dist/index.esm.js',
+        format: 'es',
         sourcemap: true,
       },
       {
-        file: "dist/index.umd.js",
-        format: "umd",
+        file: 'dist/index.umd.js',
+        format: 'umd',
         globals: {
-          "@pool-time/pool-time-core": "PoolTimeCore",
-          react: "React",
+          '@pool-time/pool-time-core': 'PoolTimeCore',
+          react: 'React',
         },
-        name: "ReactPoolTime",
+        name: 'ReactPoolTime',
         sourcemap: true,
       },
     ],
@@ -35,7 +35,7 @@ export default [
       filesize(),
       typescript({
         sourceMap: true,
-        rootDir: "src",
+        rootDir: 'src',
       }),
     ],
   },
@@ -44,15 +44,15 @@ export default [
     external,
     input,
     output: {
-      dir: "dist/types",
+      dir: 'dist/types',
       sourcemap: true,
     },
     plugins: [
       typescript({
         declaration: true,
-        declarationDir: "dist/types",
+        declarationDir: 'dist/types',
         sourceMap: true,
-        rootDir: "src",
+        rootDir: 'src',
       }),
     ],
   },
