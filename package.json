@@ -48,6 +48,7 @@
     "tslib": "^2.0.0",
     "typescript": "^3.9.6"
   },
+  "files": ["dist"],
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
@@ -78,6 +79,7 @@
     "test:base": "jest",
     "test:ci": "yarn test:base --coverage"
   },
+  "sideEffects": false,
   "source": "src/index.ts",
   "ts:main": "src/index.ts",
   "types": "dist/types/index.d.ts",
