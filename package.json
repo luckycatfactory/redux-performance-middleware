@@ -5,7 +5,7 @@
   },
   "bin": "./cli.js",
   "browser": "dist/index.js",
-  "bugs": "https://github.com/pool-time/redux-performance-middleware/issues",
+  "bugs": "https://github.com/luckycatfactory/redux-performance-middleware/issues",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
@@ -56,10 +56,11 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "name": "redux-performance-middleware",
-  "repository": "https://github.com/louisscruz/redux-performance-middleware",
+  "repository": "https://github.com/luckycatfactory/redux-performance-middleware",
   "scripts": {
     "build": "yarn clean && rollup -c",
     "clean": "rm -rf dist",
+    "commit": "yarn git-cz",
     "eslint": "yarn eslint:fix",
     "eslint:base": "eslint . --ext .js,.jsx,.ts,.tsx",
     "eslint:check": "yarn eslint:base",

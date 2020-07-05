@@ -1,6 +1,6 @@
 import { AnyAction, Dispatch, MiddlewareAPI } from 'redux';
 
-type Middleware<S, E extends AnyAction> = (
+export type Middleware<S, E extends AnyAction> = (
   api: Dispatch<E> extends Dispatch<AnyAction>
     ? MiddlewareAPI<Dispatch<E>, S>
     : never
@@ -22,6 +22,15 @@ function noOp(): void {
 function reduxPerformanceMiddleware<S, E extends AnyAction>(
   callback: ReduxPerformanceMiddlewareCallback = noOp
 ): Middleware<S, E> {
+  if (process.env.NODE_ENV !== 'production') {
+    if (callback === noOp) {
+      // eslint-disable-next-line no-console
+      console.error(
+        'Expected reduxPerformanceMiddleware to be invoked with a callback, but it was not.'
+      );
+    }
+  }
+
   const middleware = () => (next: Dispatch<E>) => (
     action: E
   ): ReturnType<Dispatch<E>> => {
