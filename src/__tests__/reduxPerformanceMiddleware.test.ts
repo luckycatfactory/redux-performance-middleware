@@ -84,10 +84,16 @@ describe('reduxPerformanceMiddleware()', () => {
     it('does not log an error in production when not passed a callback', () => {
       process.env.NODE_ENV = 'production';
 
-      (createStoreWithMiddleware as () => TodoStore)();
+      const store = (createStoreWithMiddleware as () => TodoStore)();
 
       // eslint-disable-next-line no-console
       expect(console.error as jest.Mock).not.toHaveBeenCalled();
+
+      const action = { payload: 'hi', type: ADD_TODO };
+
+      expect(() => {
+        store.dispatch(action);
+      }).not.toThrow();
     });
   });
 
