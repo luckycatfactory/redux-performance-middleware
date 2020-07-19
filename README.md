@@ -5,6 +5,10 @@
 
 This package supplies a lightweight middleware that gives you observability of your Redux reducer's performance.
 
+## Example
+
+You can see an example of this middleware in use [here](https://codesandbox.io/s/redux-performance-middleware-example-03zkr?file=/src/index.js).
+
 ## Installation
 
 With `yarn`:
