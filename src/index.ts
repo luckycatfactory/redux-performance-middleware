@@ -6,17 +6,19 @@ export type Middleware<S, E extends AnyAction> = (
     : never
 ) => (next: Dispatch<E>) => (event: E) => ReturnType<Dispatch<E>>;
 
-export interface ReduxPerformanceMiddlewareCallbackParameters {
-  readonly action: object;
+export interface ReduxPerformanceMiddlewareCallbackParameters<
+  E extends AnyAction
+> {
+  readonly action: E;
   readonly elapsedTime: number;
 }
 
-export type ReduxPerformanceMiddlewareCallback = (
-  parameters: ReduxPerformanceMiddlewareCallbackParameters
+export type ReduxPerformanceMiddlewareCallback<E extends AnyAction> = (
+  parameters: ReduxPerformanceMiddlewareCallbackParameters<E>
 ) => void;
 
 function reduxPerformanceMiddleware<S, E extends AnyAction>(
-  callback: ReduxPerformanceMiddlewareCallback
+  callback: ReduxPerformanceMiddlewareCallback<E>
 ): Middleware<S, E> {
   const hasCallback = Boolean(callback);
 

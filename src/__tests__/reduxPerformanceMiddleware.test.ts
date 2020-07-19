@@ -26,7 +26,7 @@ describe('reduxPerformanceMiddleware()', () => {
   const ADD_TODO = 'ADD_TODO';
 
   const createStoreWithMiddleware = (
-    callback: ReduxPerformanceMiddlewareCallback
+    callback: ReduxPerformanceMiddlewareCallback<TodoActionTypes>
   ): TodoStore => {
     const todosReducer = (
       state: TodoState = [],
